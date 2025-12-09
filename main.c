@@ -32,7 +32,11 @@ int main(void) {
     case 3:
       /* code */
       //student_t s;
-      //findStudent(s);
+
+      printf("Enter student ID: ");
+      int id_to_find;
+      scanf("%d", &id_to_find);
+      findStudent(id_to_find);
       break;
     case 4:
       /* code */
