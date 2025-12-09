@@ -1,10 +1,28 @@
 #include "student.h"
 #include <stdio.h>
 
-void addStudent(student_t stud) { printf("add student called"); }
+#define MAX_STUDENTS 100
+static student_t students[MAX_STUDENTS];
+static int student_count = 0;
+
+void addStudent(student_t stud) { 
+  if(student_count < MAX_STUDENTS) {
+    students[student_count] = stud;
+    student_count++;
+    printf("SUCCESS! STUDENT ADDED \n");
+  } else {
+    printf("[ERROR] TOO MANY STUDENTS! \n");
+  }
+
+}
 
 student_t *viewStudents(void) {
-  printf("view students called");
+  for(int i=0; i<student_count; i++) {
+    printf("VALUES FOR STUDENT: %i \n", i);
+    printf("ID: %i \n", students[i].id);
+    printf("NAME: %s \n", students[i].name);
+    printf("GPA: %f \n", students[i].gpa);
+  }
   student_t *s;
   return s;
 }

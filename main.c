@@ -1,5 +1,6 @@
 #include "student.h"
 #include <stdio.h>
+#include <string.h>
 
 int main(void) {
   while (1) {
@@ -20,12 +21,13 @@ int main(void) {
       printf("Enter student GPA: ");
       float gpa;
       scanf("%f", &gpa);
-      student_t stud = {id, *name, gpa};
+      student_t stud = {id, "", gpa};
+      strcpy(stud.name, name);
       addStudent(stud);
       break;
     case 2:
       /* code */
-      //viewStudents();
+      viewStudents();
       break;
     case 3:
       /* code */
